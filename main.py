@@ -1,46 +1,60 @@
 import streamlit as st
 import time
 
-st.set_page_config(page_title="Malu-Malu", layout="wide")
+st.set_page_config(page_title="Malu-Malu", layout="centered")
 
-# ===== BACKGROUND =====
+# ===== STYLE: HITAM + EFEK HALUS =====
 st.markdown("""
 <style>
 .stApp {
-background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
-background-size: cover;
-background-position: center;
+background-color: #000000;
 }
-.lyrics {
-font-size: 30px;
-color: white;
-text-align: center;
-text-shadow: 2px 2px 10px black;
-animation: fade 2s;
+
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 80vh;
 }
-@keyframes fade {
-from {opacity: 0;}
-to {opacity: 1;}
+
+.text {
+color: #ffffff;
+font-size: 26px;
+letter-spacing: 2px;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0% { opacity: 0.4; }
+50% { opacity: 1; }
+100% { opacity: 0.4; }
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🎵 Malu-Malu")
+st.markdown("<div class='container'>", unsafe_allow_html=True)
 
-# ===== AUDIO (ONLINE LINK) =====
-audio_url = "ISI_LINK_MP3_DI_SINI"
-st.audio(audio_url, start_time=60)
+# ===== YOUTUBE EMBED (1:00 - 1:20) =====
+st.components.v1.html("""
+<iframe width="300" height="170"
+src="https://www.youtube.com/embed/VIDEO_ID?start=60&end=80&controls=0"
+frameborder="0"
+allow="autoplay">
+</iframe>
+""", height=180)
 
-# ===== LIRIK (ISI SENDIRI) =====
-lyrics = [
-    "🎶 Baris 1 (lu isi sendiri)",
-    "🎵 Baris 2",
-    "💭 Baris 3",
-    "❤️ Baris 4"
+# ===== TEKS (SINGKAT, TENANG) =====
+texts = [
+    "diam itu berbunyi",
+    "mata tak berani jujur",
+    "tapi hati sudah duluan"
 ]
 
 box = st.empty()
 
-for line in lyrics:
-    box.markdown(f"<div class='lyrics'>{line}</div>", unsafe_allow_html=True)
-    time.sleep(5)
+for t in texts:
+    box.markdown(f"<div class='text'>{t}</div>", unsafe_allow_html=True)
+    time.sleep(6)
+
+st.markdown("</div>", unsafe_allow_html=True)
