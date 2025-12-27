@@ -3,26 +3,26 @@ import time
 
 st.set_page_config(page_title="Malu-Malu", layout="centered")
 
-# ===== STYLE: HITAM + EFEK HALUS =====
+# ===== STYLE =====
 st.markdown("""
 <style>
 .stApp {
-background-color: #000000;
+background-color: black;
 }
 
-.container {
+.center {
+height: 100vh;
 display: flex;
-flex-direction: column;
-align-items: center;
 justify-content: center;
-height: 80vh;
+align-items: center;
+flex-direction: column;
 }
 
 .text {
-color: #ffffff;
-font-size: 26px;
+color: white;
+font-size: 28px;
 letter-spacing: 2px;
-animation: pulse 2s infinite;
+animation: pulse 2.5s infinite;
 }
 
 @keyframes pulse {
@@ -33,28 +33,29 @@ animation: pulse 2s infinite;
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<div class='container'>", unsafe_allow_html=True)
-
-# ===== YOUTUBE EMBED (1:00 - 1:20) =====
+# ===== AUDIO YOUTUBE (DISEMBUNYIKAN) =====
 st.components.v1.html("""
-<iframe width="300" height="170"
-src="https://www.youtube.com/embed/vgp0yZ8gaEs?start=60&end=80&controls=0"
+<iframe width="0" height="0"
+src="https://www.youtube.com/embedvgp0yZ8gaEs?start=60&end=80&autoplay=1"
 frameborder="0"
 allow="autoplay">
 </iframe>
-""", height=180)
+""", height=0)
 
-# ===== TEKS (SINGKAT, TENANG) =====
+# ===== TEKS DI TENGAH =====
 texts = [
-    "diam itu berbunyi",
-    "mata tak berani jujur",
-    "tapi hati sudah duluan"
+    "diam itu terasa",
+    "mata tak berani bicara",
+    "tapi hati sudah lebih dulu"
 ]
 
+st.markdown("<div class='center'>", unsafe_allow_html=True)
 box = st.empty()
 
 for t in texts:
     box.markdown(f"<div class='text'>{t}</div>", unsafe_allow_html=True)
     time.sleep(6)
+
+st.markdown("</div>", unsafe_allow_html=True)
 
 st.markdown("</div>", unsafe_allow_html=True)
