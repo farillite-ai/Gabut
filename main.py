@@ -1,61 +1,52 @@
-import streamlit as st
-import time
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Malu-Malu</title>
 
-st.set_page_config(page_title="Malu-Malu", layout="centered")
-
-# ===== STYLE =====
-st.markdown("""
 <style>
-.stApp {
-background-color: black;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
 }
 
 .center {
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .text {
-color: white;
-font-size: 28px;
-letter-spacing: 2px;
-animation: pulse 2.5s infinite;
+  color: white;
+  font-size: 28px;
+  letter-spacing: 2px;
+  animation: pulse 2.5s infinite;
 }
 
 @keyframes pulse {
-0% { opacity: 0.4; }
-50% { opacity: 1; }
-100% { opacity: 0.4; }
+  0% { opacity: .4; }
+  50% { opacity: 1; }
+  100% { opacity: .4; }
 }
 </style>
-""", unsafe_allow_html=True)
+</head>
 
-# ===== AUDIO YOUTUBE (DISEMBUNYIKAN) =====
-st.components.v1.html("""
-<iframe width="0" height="0"
-src="https://www.youtube.com/embedvgp0yZ8gaEs?start=60&end=80&autoplay=1"
-frameborder="0"
-allow="autoplay">
+<body>
+
+<!-- AUDIO YOUTUBE (DISEMBUNYIKAN TOTAL) -->
+<iframe
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/VIDEO_ID?start=60&end=80&autoplay=1"
+  allow="autoplay">
 </iframe>
-""", height=0)
 
-# ===== TEKS DI TENGAH =====
-texts = [
-    "diam itu terasa",
-    "mata tak berani bicara",
-    "tapi hati sudah lebih dulu"
-]
+<div class="center">
+  <div class="text">diam itu terasa</div>
+</div>
 
-st.markdown("<div class='center'>", unsafe_allow_html=True)
-box = st.empty()
-
-for t in texts:
-    box.markdown(f"<div class='text'>{t}</div>", unsafe_allow_html=True)
-    time.sleep(6)
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-st.markdown("</div>", unsafe_allow_html=True)
+</body>
+</html>
